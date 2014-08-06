@@ -1,17 +1,29 @@
 package com.example.erin.attendapp;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //checks to see if container_layout is occupied
+        if (findViewById(R.id.container_layout) != null) {
+            return;
+        }
+
+        //create an instance of HomeScreen
+        HomeScreen homeScreen = new HomeScreen();
+        //homeScreen.setArguments(getIntent().getExtras());
+
+        //add the fragment to the container_layout
+        getSupportFragmentManager().beginTransaction().add(R.id.container_layout, homeScreen).commit();
     }
 
 
