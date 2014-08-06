@@ -5,5 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="class_tracker">Class Tracker</string>
+    <string name="attend_text">Attendance</string>
+    <string name="new_student">Add New Student</string>
+    <string name="view_student">View Students</string>
 
 </resources>
