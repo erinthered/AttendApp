@@ -15,17 +15,19 @@ public class MainActivity extends FragmentActivity {
 
         //checks to see if container_layout is occupied
         if (findViewById(R.id.container_layout) != null) {
-            return;
+            if (savedInstanceState != null) {
+                return;
+            }
+
+
+            //create an instance of HomeScreen
+            HomeScreen homeScreen = new HomeScreen();
+            //homeScreen.setArguments(getIntent().getExtras());
+
+            //add the fragment to the container_layout
+            getSupportFragmentManager().beginTransaction().add(R.id.container_layout, homeScreen).commit();
         }
-
-        //create an instance of HomeScreen
-        HomeScreen homeScreen = new HomeScreen();
-        //homeScreen.setArguments(getIntent().getExtras());
-
-        //add the fragment to the container_layout
-        getSupportFragmentManager().beginTransaction().add(R.id.container_layout, homeScreen).commit();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
